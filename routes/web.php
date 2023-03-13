@@ -11,6 +11,8 @@ use App\Http\Controllers\presidentTeamController;
 use App\Http\Controllers\PresidentAsoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UpcomingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,3 +89,17 @@ Route::middleware(['auth', 'rol:3'])->group(function () {
 Route::middleware(['auth', 'rol:4'])->group(function () {
     
 });
+
+//calendario de partidos
+Route::get('/proximos-partidos', [UpcomingController::class, 'proximosPartidos'])->name('upcoming.upcoming');
+Route::get('/proximos-partidos/create', [UpcomingController::class, 'create'])->name('upcoming.create');
+Route::post('/proximos-partidos/create',[UpcomingController::class, 'store'])->name('upcoming.upcoming');
+
+
+Route::get('/matches.index', [MatchesController::class, 'index'])->name('matches.index');
+Route::get('/matches.index/create', [MatchesController::class, 'create'])->name('matches.create');
+Route::get('/matches.index', [MatchesController::class, 'store'])->name('matches.store');
+Route::get('/matches.index/{id}', [MatchesController::class, 'show'])->name('matches.show');
+Route::get('/matches.index/{id}/edit', [MatchesController::class, 'edit'])->name('matches.edit');
+Route::put('/matches.index/{id}', [MatchesController::class, 'update'])->name('matches.update');
+Route::delete('/matches.index/{id}', [MatchesController::class, 'destroy'])->name('matches.destroy');
