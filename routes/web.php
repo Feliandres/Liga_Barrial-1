@@ -12,6 +12,7 @@ use App\Http\Controllers\PresidentAsoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UpcomingController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,16 +91,14 @@ Route::middleware(['auth', 'rol:4'])->group(function () {
     
 });
 
-//calendario de partidos
-Route::get('/proximos-partidos', [UpcomingController::class, 'proximosPartidos'])->name('upcoming.upcoming');
-Route::get('/proximos-partidos/create', [UpcomingController::class, 'create'])->name('upcoming.create');
-Route::post('/proximos-partidos/create',[UpcomingController::class, 'store'])->name('upcoming.upcoming');
+//! PROXIMOS PARTIDOS
+Route::resource('calendars', CalendarController::class);
 
+/*
+Route::get('/proximos-partidos', [UpcomingController::class, 'proximosPartidos'])->name('upcoming.matches');
+Route::get('/proximos-partidos/create', [UpcomingController::class, 'create'])->name('upcoming.register');
+Route::post('/proximos-partidos/create',[UpcomingController::class, 'store'])->name('upcoming.create');
+Route::get('/proximos-partidos/{id}', [UpcomingController::class, 'edit'])->name('upcoming.edit');
+Route::post('/proximos-partidos/{id}/edit',[UpcomingController::class, 'update'])->name('upcoming.update');
+Route::get('/proximos-partidos/{id}', [UpcomingController::class, 'destroy'])->name('upcoming.destroy');*/
 
-Route::get('/matches.index', [MatchesController::class, 'index'])->name('matches.index');
-Route::get('/matches.index/create', [MatchesController::class, 'create'])->name('matches.create');
-Route::get('/matches.index', [MatchesController::class, 'store'])->name('matches.store');
-Route::get('/matches.index/{id}', [MatchesController::class, 'show'])->name('matches.show');
-Route::get('/matches.index/{id}/edit', [MatchesController::class, 'edit'])->name('matches.edit');
-Route::put('/matches.index/{id}', [MatchesController::class, 'update'])->name('matches.update');
-Route::delete('/matches.index/{id}', [MatchesController::class, 'destroy'])->name('matches.destroy');

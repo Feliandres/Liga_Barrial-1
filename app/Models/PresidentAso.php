@@ -34,4 +34,10 @@ class PresidentAso extends Model
     {
         return $this->hasMany(Tournament::class);
     }
+
+    //RELACIÓN UNO A MUCHOS
+    public function calendar()
+    {
+        return $this->hasMany(Calendar::class);
+    }
 }
