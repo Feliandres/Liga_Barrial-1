@@ -11,6 +11,9 @@ use App\Http\Controllers\presidentTeamController;
 use App\Http\Controllers\PresidentAsoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UpcomingController;
+use App\Http\Controllers\CalendarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,3 +90,15 @@ Route::middleware(['auth', 'rol:3'])->group(function () {
 Route::middleware(['auth', 'rol:4'])->group(function () {
     
 });
+
+//! PROXIMOS PARTIDOS
+Route::resource('calendars', CalendarController::class);
+
+/*
+Route::get('/proximos-partidos', [UpcomingController::class, 'proximosPartidos'])->name('upcoming.matches');
+Route::get('/proximos-partidos/create', [UpcomingController::class, 'create'])->name('upcoming.register');
+Route::post('/proximos-partidos/create',[UpcomingController::class, 'store'])->name('upcoming.create');
+Route::get('/proximos-partidos/{id}', [UpcomingController::class, 'edit'])->name('upcoming.edit');
+Route::post('/proximos-partidos/{id}/edit',[UpcomingController::class, 'update'])->name('upcoming.update');
+Route::get('/proximos-partidos/{id}', [UpcomingController::class, 'destroy'])->name('upcoming.destroy');*/
+
