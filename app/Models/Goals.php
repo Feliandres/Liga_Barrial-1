@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Goals extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $incrementing = true;
     // RELACIÓN DE UNO A MUCHOS
     public function matches()

@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Matches extends Model
 {
     use HasFactory;
-    public $timestamps = false;
-
     // RELACIÓN DE MUCHOS A MUCHOS
     public function soccerTeam()
     {

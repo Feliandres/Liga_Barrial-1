@@ -15,7 +15,6 @@ class Players extends Model
      */
     protected $table='players';
     protected $keyType='string';
-    public $timestamps = false;
     /**
     * The primary key associated with the table.
     *
